@@ -1,0 +1,167 @@
+main {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin: 20px;
+}
+
+.left-section{
+    width: 45%; /* 调整左右部分的宽度 */
+    margin-left: 15%;
+}
+.right-section{
+    width: 45%; /* 调整左右部分的宽度 */
+    margin-left: 15%;
+
+}
+
+h2 {
+    margin-top: 30px;
+    margin-bottom: 50px;
+    font-weight: bolder;
+}
+
+h2 span{
+    font-size: 60%;
+}
+
+.left-section .form-row {
+    display: flex;
+    align-items: center;
+}
+
+.left-section .form-column {
+    display: flex; 
+    flex-direction: column;
+    margin-right: 10px;
+}
+
+.left-section label {
+    width: 300px;
+}
+
+.left-section input[type="text"],
+.left-section input[type="email"],
+.left-section input[type="password"] {
+    width: calc(100% - 10px); /* 使用 calc 计算宽度，以便加上 margin 和 padding */
+    padding: 8px; /* 调整输入框内边距 */
+    border: 2px solid #333; /* 设置边框粗细和颜色 */
+    border-radius: 5px; /* 添加圆角 */
+    margin-top: 5px; /* 调整上边距 */
+    margin-bottom: 10px; /* 调整下边距 */
+    box-sizing: border-box; /* 让 border 和 padding 不增加元素宽度 */
+}
+
+.right-section .form-row {
+    display: flex;
+    align-items: center;
+}
+
+.right-section .form-column {
+    display: flex; 
+    flex-direction: column;
+    margin-right: 10px;
+}
+
+.right-section label {
+    width: 300px;
+}
+
+.right-section input[type="text"],
+.right-section input[type="email"],
+.right-section input[type="password"] {
+    width: calc(100% - 10px); /* 使用 calc 计算宽度，以便加上 margin 和 padding */
+    padding: 8px; /* 调整输入框内边距 */
+    border: 2px solid #333; /* 设置边框粗细和颜色 */
+    border-radius: 5px; /* 添加圆角 */
+    margin-top: 5px; /* 调整上边距 */
+    margin-bottom: 10px; /* 调整下边距 */
+    box-sizing: border-box; /* 让 border 和 padding 不增加元素宽度 */
+}
+
+.separator {
+    border-left: 3px solid #000000;
+    height: 100vh; /* 让分隔线沿着垂直方向占据整个视口高度 */
+    margin: 20px 0;
+}
+
+
+/* 按钮样式 */
+#createAccountButton, #signInButton {
+    background-color: #3498db;
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+/*标签字体*/
+.left-section label {
+    width: 300px;
+    font-family: "Arial", sans-serif; /* 设置字体族 */
+    font-size: 16px; /* 设置字体大小 */
+    font-weight: bold; /* 设置字体粗细 */
+    color: #333; /* 设置字体颜色 */
+}
+
+.right-section label {
+    width: 300px;
+    font-family: "Arial", sans-serif; /* 设置字体族 */
+    font-size: 16px; /* 设置字体大小 */
+    font-weight: bold; /* 设置字体粗细 */
+    color: #333; /* 设置字体颜色 */
+}
+
+.tips {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    margin-top: 80px;
+    margin-right: 50px;
+}
+
+.tips p {
+    margin: 10px 0;
+    line-height: 1.4; /* 设置行高，提高可读性 */
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+
+/*------------ Responsive mobile view-------------------*/
+/* 在移动设备上应用的样式 */
+@media only screen and (max-width: 768px) {
+    main {
+        flex-direction: column; /* 将主体内容布局改为垂直方向 */
+        align-items: center; /* 居中主体内容 */
+    }
+
+    .left-section, .right-section {
+        width: 100%; /* 让左右部分占据整个宽度 */
+        margin-left: 0; /* 清除左侧边距 */
+    }
+
+    .separator {
+        display: none; /* 移除分隔线 */
+    }
+
+    /* 调整标签宽度 */
+    .left-section label, .right-section label {
+        width: auto;
+    }
+
+    /* 调整输入框样式 */
+    .left-section input[type="text"],
+    .left-section input[type="email"],
+    .left-section input[type="password"],
+    .right-section input[type="text"],
+    .right-section input[type="email"],
+    .right-section input[type="password"] {
+        width: 100%; /* 让输入框占据整个宽度 */
+        margin-left: 0; /* 清除左侧边距 */
+    }
+}

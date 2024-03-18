@@ -1,0 +1,77 @@
+/* FAQ 网页主体样式 */
+.faq-main {
+    display: flex;
+}
+
+/* 左侧图片部分样式 */
+.faq-image {
+    flex: 1; /* 占据剩余空间，调整宽度 */
+    padding: 20px; /* 调整内边距 */
+}
+
+.faq-image img {
+    max-width: 150%; /* 图片宽度最大为容器宽度 */
+    height: auto; /* 保持宽高比，防止图片变形 */
+    margin-top: 100px;
+    margin-left: 100px;
+}
+
+/* 右侧文字部分样式 */
+.faq-text {
+    flex: 1; /* 占据剩余空间，可以根据需要调整宽度 */
+    padding: 20px; /* 调整内边距 */
+    margin-right: 50px;
+}
+
+.faq-text h2 {
+    font-size: 35px; /* 调整标题字体大小 */
+    font-weight: bolder;
+}
+
+.faq-text p {
+    font-size: 20px; /* 调整段落字体大小 */
+    font-weight: bold;
+}
+
+/* 分割线样式 */
+hr {
+    border: 2px solid #000000; /* 设置分割线为实线，颜色为灰色 */
+    margin-top: 10px; /* 调整分割线上方间距 */
+    margin-bottom: 20px; /* 调整分割线下方间距 */
+}
+
+
+/*------------ Responsive mobile view-------------------*/
+
+/* 在移动设备上调整 FAQ 页面样式 */
+@media (max-width: 768px) {
+    .faq-main {
+        flex-direction: column; /* 在移动设备上将主体布局改为垂直方向 */
+    }
+
+    .faq-image {
+        order: -1; /* 在移动设备上将图片部分排在文字部分之前 */
+        padding: 0; /* 移除图片部分的内边距 */
+    }
+
+    .faq-image img {
+        max-width: 100%; /* 图片宽度最大为容器宽度的100% */
+        margin: 0 auto; /* 在移动设备上居中图片 */
+        display: block; /* 使图片在移动设备上居中 */
+    }
+
+    .faq-text {
+        padding: 20px; /* 重新设置文字部分的内边距 */
+        margin: 0; /* 移除文字部分的外边距 */
+    }
+
+    .faq-text h2 {
+        font-size: 28px; /* 调整标题字体大小 */
+    }
+
+    .faq-text p {
+        font-size: 16px; /* 调整段落字体大小 */
+        font-weight: normal; /* 重置字体粗细为正常 */
+    }
+}
+

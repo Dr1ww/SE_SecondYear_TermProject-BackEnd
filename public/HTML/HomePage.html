@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 添加 Bootstrap 样式链接 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../CSS/HomePageFormat.css">
+    <link rel="stylesheet" href="../CSS/global.css">
+
+    <!-- Leaflet CSS 文件 -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <!-- Leaflet JavaScript 文件 -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <title>Home Page</title>
+</head>
+<body>
+
+        <!-- Bootstrap 导航栏开始 -->
+        <!-- amber check branch  -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="HomePage.html">
+                    <img src="../Image Source 1/Logo 抠图版.png" alt="Logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="MenHomePage.html">Men</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="WomenHomePage.html">Women</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="KidsHomePage.html">Kids</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="FAQ.html">FAQ</a>
+                        </li>
+                        <li class="nav-item" id="searchFormWrapper">
+                          <form id="searchForm" class="form-inline my-2 my-lg-0">
+                              <input id="searchInput" class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search">
+                              <button id="searchButton" class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>
+                          </form>
+                      </li>
+                      
+                      <script>
+                          // 获取搜索表单和其内部元素
+                          const searchForm = document.getElementById('searchForm');
+                          const searchInput = document.getElementById('searchInput');
+                          const searchButton = document.getElementById('searchButton');
+                      
+                          // 添加事件监听器来处理搜索操作
+                          searchButton.addEventListener('click', function() {
+                              // 获取搜索关键字
+                              const keyword = searchInput.value.trim().toLowerCase();
+                              
+                              // 执行搜索操作
+                              // 这里可以添加您的搜索逻辑，比如跳转到搜索结果页面、显示搜索结果等
+                              switch (keyword) {
+                                  case 'kids':
+                                      window.location.href = 'KidsHomePage.html';
+                                      break;
+                                  case 'men':
+                                      window.location.href = 'MenHomePage.html';
+                                      break;
+                                  case 'women':
+                                      window.location.href = 'WomenHomePage.html';
+                                      break;
+                                  default:
+                                      alert('No search results found for: ' + keyword);
+                              }
+                          });
+                      
+                          // 也可以在按下回车键时执行搜索操作
+                          searchInput.addEventListener('keyup', function(event) {
+                              // 获取搜索关键字
+                              const keyword = searchInput.value.trim().toLowerCase();
+                              
+                              // 如果按下的是回车键，则执行搜索操作
+                              if (event.key === 'Enter') {
+                                  // 阻止默认提交行为
+                                  event.preventDefault();
+                                  
+                                  // 执行搜索操作
+                                  // 这里可以添加您的搜索逻辑，比如跳转到搜索结果页面、显示搜索结果等
+                                  switch (keyword) {
+                                      case 'kids':
+                                          window.location.href = 'KidsHomePage.html';
+                                          break;
+                                      case 'men':
+                                          window.location.href = 'MenHomePage.html';
+                                          break;
+                                      case 'women':
+                                          window.location.href = 'WomenHomePage.html';
+                                          break;
+                                      default:
+                                          alert('No search results found for: ' + keyword);
+                                  }
+                              }
+                          });
+                      </script>
+                        <li class="nav-item">
+                            <a class="nav-link cart-button" href="Cart.html">Cart</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link sign-in-button" href="SignInPage.html">Sign In</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Bootstrap 导航栏结束 -->
+
+        <!-- 网页主体开始 -->
+        <main>
+            <!-- Purchase top-selling product 部分 -->
+    <section class="purchase-section">
+        <!-- 左侧商品介绍 -->
+        <div class="product-info">
+            <h1><strong>Purchase top-selling <br> product now.</strong> </h1>
+            <p>Experience ultimate comfort and style with our innovative lightweight running shoes. Ideal for all your athletic pursuits and daily adventures.</p>
+        <!-- 使用按钮，并通过 JavaScript 处理点击事件实现跳转 -->
+        <button class="buyNowButton" id="buyNowButton">Buy Now</button>        
+    </div>
+        <!-- 右侧商品图片 -->
+        <div class="product-image">
+            <img src="../Image Source 1/Product1.png" alt="Top-Selling Product">
+        </div>
+    </section>
+
+            <!-- 商品展示部分 -->
+<section class="new-arrivals-section">
+    <h1>New Arrivals</h1>
+    <div class="product-container">
+        <!-- 商品 1 -->
+        <div class="product">
+            <img src="../Image Source 1/NIKE Cloth 抠图版.png" alt="Product 1">
+            <h3>Hoodie</h3>
+            <button class="buyNowButton" id="buyNowButton1">Buy Now</button>
+        </div>
+        <!-- 商品 2 -->
+        <div class="product">
+            <img src="../Image Source 1/Cloth 1.png" alt="Product 2">
+            <h3>Short</h3>
+            <button class="buyNowButton" id="buyNowButton2">Buy Now</button>
+        </div>
+        <!-- 商品 3 -->
+        <div class="product">
+            <img src="../Image Source 1/image 2.png" alt="Product 3">
+            <h3>Sneaker</h3>
+            <button class="buyNowButton" id="buyNowButton3">Buy Now</button>
+        </div>
+        <!-- 商品 4 -->
+        <div class="product">
+            <img src="../Image Source 1/image 3.png" alt="Product 4">
+            <h3>KIDS</h3>
+            <button class="buyNowButton" id="buyNowButton4">Buy Now</button>
+        </div>
+    </div>
+    <!--轮播-->
+     <!-- 轮播部分 -->
+     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+          <div class="carousel-item active">
+              <img class="d-block w-100" src="../imageCarousel/Carousel_1.jpg" alt="First slide">
+          </div>
+          <div class="carousel-item">
+              <img class="d-block w-100" src="../imageCarousel/Carousel_2.jpg" alt="Second slide">
+          </div>
+          <div class="carousel-item">
+              <img class="d-block w-100" src="../imageCarousel/Carousel_3.jpg" alt="Third slide">
+          </div>
+          <div class="carousel-item">
+              <img class="d-block w-100" src="../imageCarousel/Carousel_4.jpg" alt="Fourth slide">
+          </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+      </a>
+  </div>
+</section>
+
+        </main>
+        <!-- 网页主体结束 -->
+
+        <!-- 底部开始 -->
+        <footer>
+            <div class="footer-container">
+              <div class="footer-section">
+                <!-- Logo Section -->
+                <img src="../Image Source 1/Fly Wings Logo.png" alt="Logo">
+              </div>
+              <div class="footer-section">
+                <!-- Company Info and Contact -->
+                <!-- 地图区域 -->
+                <div id="map" style="height: 200px;"></div>
+                <h3>About Us</h3>
+                <p>239 Huay Kaew Rd, Tambon Su Thep, Amphoe Mueang Chiang Mai, Chang Wat Chiang Mai 50200</p>
+                <p><a href="mailto:bingwen_qian@cmu.ac.th">Email: bingwen_qian@cmu.ac.th</a></p>
+
+                <p>Phone: +66 168 168 1688</p>
+              </div>
+
+              <div class="footer-section">
+                <!-- Navigation Links -->
+                <h3>Quick Links</h3>
+                <ul>
+                  <li><a href="MenHomePage.html">Men</a></li>
+                  <li><a href="WomenHomePage.html">Women</a></li>
+                  <li><a href="KidsHomePage.html">Kids</a></li>
+                  <li><a href="../HTML/FAQ.html">FAQ</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="footer-bottom">
+              <p>&copy; 2024 Fly Wings. All rights reserved.</p>
+            </div>
+          </footer>
+        <!-- 底部结束 -->
+
+
+    <!-- 添加 Bootstrap JavaScript 依赖 -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!--跳转相应网页-->
+    <script>
+        // JavaScript 代码处理按钮点击事件，实现页面跳转
+        document.getElementById('buyNowButton').addEventListener('click', function() {
+          // 在此处设置购买页面的 URL
+          window.location.href = '../HTML/Top-Selling.html';
+        });
+      </script>
+
+          <script>
+        // JavaScript 代码处理按钮点击事件，实现页面跳转
+        document.getElementById('buyNowButton1').addEventListener('click', function() {
+          // 在此处设置购买页面的 URL
+          window.location.href = '../HTML/NewArrivalHoodie.html';
+        });
+      </script>
+
+                <script>
+        // JavaScript 代码处理按钮点击事件，实现页面跳转
+        document.getElementById('buyNowButton2').addEventListener('click', function() {
+          // 在此处设置购买页面的 URL
+          window.location.href = '../HTML/NewArrivalShort.html';
+        });
+      </script>
+
+                      <script>
+        // JavaScript 代码处理按钮点击事件，实现页面跳转
+        document.getElementById('buyNowButton3').addEventListener('click', function() {
+          // 在此处设置购买页面的 URL
+          window.location.href = '../HTML/NewArrivalSneaker.html';
+        });
+      </script>
+
+                            <script>
+        // JavaScript 代码处理按钮点击事件，实现页面跳转
+        document.getElementById('buyNowButton4').addEventListener('click', function() {
+          // 在此处设置购买页面的 URL
+          window.location.href = '../HTML/NewArrivalKIDS.html';
+        });
+      </script>
+
+      <script>
+      // 创建地图并设置中心点坐标和缩放级别
+      var map = L.map('map').setView([18.7953, 98.9529], 15);
+
+      // 添加地图图层
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
+
+      // 添加标记并设置清迈大学的位置
+      // 在地图上添加标记（清迈大学的位置）
+      L.marker([18.80046,98.95095]).addTo(map)
+            .bindPopup("<b>Chiang Mai University</b>").openPopup();
+            
+      </script>
+
+
+      
+      <!------------------------------------------------------------>
+</body>
+</html>
+      <!------------------------------------------------------------>
+      <!------------------------------------------------------------>
+      <!------------------------------------------------------------>
+      <!------------------------------------------------------------>
+            <!------------------------------------------------------------>
+

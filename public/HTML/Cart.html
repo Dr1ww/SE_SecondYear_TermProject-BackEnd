@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 添加 Bootstrap 样式链接 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../CSS/global.css">
+    <link rel="stylesheet" href="../CSS/Cart.css">
+
+    <title>Shopping Cart</title>
+</head>
+<body>
+
+<!-- Bootstrap 导航栏开始 -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="HomePage.html">
+            <img src="../Image Source 1/Logo 抠图版.png" alt="Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="MenHomePage.html">Men</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="WomenHomePage.html">Women</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="KidsHomePage.html">Kids</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="FAQ.html">FAQ</a>
+                </li>
+                <li class="nav-item" id="searchFormWrapper">
+                    <form id="searchForm" class="form-inline my-2 my-lg-0">
+                        <input id="searchInput" class="form-control mr-sm-2" type="search" placeholder="Search..."
+                               aria-label="Search">
+                        <button id="searchButton" class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>
+                    </form>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link cart-button" href="Cart.html">Cart</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link sign-in-button" href="SignInPage.html">Sign In</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Bootstrap 导航栏结束 -->
+
+<!-- 网页主体开始 -->
+<main class="container">
+    <!-- 标题部分 -->
+    <h1>Shopping Cart</h1>
+    <h2>You have <span id="itemCount">0</span> item(s) in your cart</h2>
+
+    <!-- 物品显示区域 -->
+    <div class="row">
+        <!-- 左侧购物车物品展示区域 -->
+        <div class="col-md-8" id="cartItems">
+            <!-- 这里将动态添加购物车中的物品 -->
+        </div>
+
+        <!-- 右侧支付详情区域 -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Payment Details</h5>
+
+                    <!-- Payment Type Logo -->
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="../Cart/Maestro.png" alt="Logo 1">
+                        </div>
+                        <div class="col-md-3">
+                            <img src="../Cart/Mastercard.png" alt="Logo 2">
+                        </div>
+                        <div class="col-md-3">
+                            <img src="../Cart/UnionPay.png" alt="Logo 3">
+                        </div>
+                        <div class="col-md-3">
+                            <img src="../Cart/Visa.png" alt="Logo 4">
+                        </div>
+                    </div>
+
+                    <!-- Payment Type -->
+                    <div class="form-group">
+                        <label for="paymentType">Payment Type</label>
+                        <select class="form-control" id="paymentType">
+                            <option>Credit Card</option>
+                            <option>Debit Card</option>
+                            <option>PayPal</option>
+                        </select>
+                    </div>
+
+                    <!-- Card Number -->
+                    <div class="form-group">
+                        <label for="cardNumber">Card Number</label>
+                        <input type="text" class="form-control" id="cardNumber">
+                    </div>
+
+                    <!-- Expiration Date -->
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="expirationMonth">Expiration Date</label>
+                            <input type="text" class="form-control" id="expirationMonth" placeholder="MM">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="expirationYear"> </label>
+                            <input type="text" class="form-control" id="expirationYear" placeholder="YYYY">
+                        </div>
+                    </div>
+
+                    <!-- CVV -->
+                    <div class="form-group">
+                        <label for="cvv">CVV</label>
+                        <input type="text" class="form-control" id="cvv">
+                    </div>
+
+                    <!-- Subtotal -->
+                    <p>Subtotal: <span id="subtotal">￥0.00</span></p>
+
+                    <!-- Shipping -->
+                    <p>Shipping: <span id="shipping">￥0.00</span></p>
+
+                    <!-- Total -->
+                    <p>Total (Tax incl.): <span id="total">￥0.00</span></p>
+
+                    <!-- Pay按钮 -->
+                    <button type="button" class="btn btn-primary btn-block">Pay</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<!-- 网页主体结束 -->
+
+<!-- 底部开始 -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <!-- Logo Section -->
+            <img src="../Image Source 1/Fly Wings Logo.png" alt="Logo">
+        </div>
+        <div class="footer-section">
+            <!-- Company Info and Contact -->
+            <h3>About Us</h3>
+            <p>239 Huay Kaew Rd, Tambon Su Thep, Amphoe Mueang Chiang Mai, Chang Wat Chiang Mai 50200</p>
+            <p>Email: bingwen_qian@cmu.ac.th</p>
+            <p>Phone: +66 168 168 1688</p>
+        </div>
+        <div class="footer-section">
+            <!-- Navigation Links -->
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="MenHomePage.html">Men</a></li>
+                <li><a href="WomenHomePage.html">Women</a></li>
+                <li><a href="KidsHomePage.html">Kids</a></li>
+                <li><a href="../HTML/FAQ.html">FAQ</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 Fly Wings. All rights reserved.</p>
+    </div>
+</footer>
+<!-- 底部结束 -->
+
+<!-- 添加 Bootstrap JavaScript 依赖 -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<script>
+    // 获取搜索表单和其内部元素
+    const searchForm = document.getElementById('searchForm');
+    const searchInput = document.getElementById('searchInput');
+    const searchButton = document.getElementById('searchButton');
+    
+    // 添加事件监听器来处理搜索操作
+    searchButton.addEventListener('click', function() {
+        // 获取搜索关键字
+        const keyword = searchInput.value.trim().toLowerCase();
+        
+        // 执行搜索操作
+        // 这里可以添加您的搜索逻辑，比如跳转到搜索结果页面、显示搜索结果等
+        switch (keyword) {
+            case 'kids':
+                window.location.href = 'KidsHomePage.html';
+                break;
+            case 'men':
+                window.location.href = 'MenHomePage.html';
+                break;
+            case 'women':
+                window.location.href = 'WomenHomePage.html';
+                break;
+            default:
+                alert('No search results found for: ' + keyword);
+        }
+    });
+    
+    // 也可以在按下回车键时执行搜索操作
+    searchInput.addEventListener('keyup', function(event) {
+        // 获取搜索关键字
+        const keyword = searchInput.value.trim().toLowerCase();
+        
+        // 如果按下的是回车键，则执行搜索操作
+        if (event.key === 'Enter') {
+            // 阻止默认提交行为
+            event.preventDefault();
+            
+            // 执行搜索操作
+            // 这里可以添加您的搜索逻辑，比如跳转到搜索结果页面、显示搜索结果等
+            switch (keyword) {
+                case 'kids':
+                    window.location.href = 'KidsHomePage.html';
+                    break;
+                case 'men':
+                    window.location.href = 'MenHomePage.html';
+                    break;
+                case 'women':
+                    window.location.href = 'WomenHomePage.html';
+                    break;
+                default:
+                    alert('No search results found for: ' + keyword);
+            }
+        }
+    });
+
+    // 更新购物车总价和总价（含税）
+    function updatePrices() {
+        let totalPrice = 0;
+        const savedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        savedCartItems.forEach(cartItem => {
+            totalPrice += parseFloat(cartItem.price);
+        });
+        const taxRate = 0.1; // 假设税率为10%
+        const totalWithTax = totalPrice * (1 + taxRate);
+        document.getElementById('subtotal').innerText = `￥${totalPrice.toFixed(2)}`;
+        document.getElementById('total').innerText = `￥${totalWithTax.toFixed(2)}`;
+    }
+
+    // 从 URL 中获取传递的参数
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+
+    // 使用传递的参数更新购物车内容
+    const productName = urlParams.get('productName');
+    const selectedSizes = urlParams.getAll('selectedSize');
+    const price = urlParams.get('price');
+
+    // 清空购物车物品展示区域的HTML内容
+    document.getElementById('cartItems').innerHTML = '';
+
+    // 遍历所有尺码，构建购物车内容并存储到本地存储
+    selectedSizes.forEach(size => {
+        const cartItem = {
+            productName: productName,
+            selectedSize: size,
+            price: price
+        };
+
+        // 将购物车内容存储到本地存储
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        cartItems.push(cartItem);
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    });
+
+    // 更新购物车物品数量
+    const itemCount = JSON.parse(localStorage.getItem('cartItems')).length;
+    document.getElementById('itemCount').innerText = itemCount;
+
+    // 显示已保存在本地存储中的商品信息
+    const savedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    savedCartItems.forEach((cartItem, index) => {
+        const { productName, selectedSize, price } = cartItem;
+        const cartItemHTML = `
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">${productName}</h5>
+                    <p>Size: ${selectedSize}</p>
+                    <p>Price: ${price}</p>
+                    <button class="btn btn-danger btn-sm float-right remove-item" data-index="${index}">-</button>
+                </div>
+            </div>
+        `;
+        document.getElementById('cartItems').innerHTML += cartItemHTML;
+    });
+
+    // 添加点击事件监听器以删除购物车商品
+    document.querySelectorAll('.remove-item').forEach(button => {
+        button.addEventListener('click', function() {
+            const index = parseInt(this.getAttribute('data-index'));
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            cartItems.splice(index, 1);
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            this.closest('.card').remove();
+            // 更新购物车物品数量
+            const itemCount = JSON.parse(localStorage.getItem('cartItems')).length;
+            document.getElementById('itemCount').innerText = itemCount;
+            // 更新购物车总价和总价（含税）
+            updatePrices();
+        });
+    });
+
+    // 初始化购物车总价和总价（含税）
+    updatePrices();
+</script>
+
+</body>
+</html>

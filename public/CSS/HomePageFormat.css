@@ -1,0 +1,195 @@
+/*body主体*/
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0; /* 去除 body 默认的 margin，以确保宽度为100% */
+}
+
+main {
+    padding: 20px;
+    background: linear-gradient(to right, #3498db, #fff); /* 设置网页主体蓝白渐变色背景 */
+    min-height: 100vh; /* 设置主体最小高度，确保渐变色背景充满整个页面 */
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+footer {
+    background-color: #2c3e50;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+/* purchase-section */
+/* 左对齐并相对于网页中线对齐 */
+.purchase-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-top: 60px;
+}
+
+.product-info {
+    width: 40%;
+}
+
+.product-info h1 {
+    text-align: left;
+}
+
+.product-info p,
+.product-info button {
+    text-align: left;
+}
+.product-image {
+    width: 50%; /* 右侧商品图片宽度 */
+}
+
+.product-image img {
+    width: 100%; /* 图片宽度占满容器 */
+}
+
+/* 调整字体大小 */
+.product-info h1 strong {
+    font-size: 1.5em; /* 调整字体大小 */
+    font-weight: bold;
+    color: white;
+}
+.product-info p {
+    font-size: 1.2em; /* 调整字体大小 */
+    color: white;
+    font-weight: bold;
+
+}
+
+/* Add to Cart 按钮样式 */
+.product-info button {
+    text-align: center;
+    width: 198px;
+    height: 69px;
+    background-color: white; /* 按钮背景颜色，可以根据需要调整 */
+    color: black; /* 按钮文本颜色，可以根据需要调整 */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 300px;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.product-image{
+    width: 600px;
+    height: auto;
+}
+
+
+
+/*-------------------------- purchase-section end -----------------------------*/
+/* 商品展示部分样式 */
+.new-arrivals-section {
+    text-align: center;
+    margin-top: 20px; /* 调整上方间距 */
+}
+
+.new-arrivals-section h1 {
+    font-size: 2.5em; /* 调整字体大小 */
+    font-weight: bold;
+    color: white;
+    margin-top: 20px; /* 调整上方间距 */
+    text-decoration: underline;/*下划线*/
+}
+
+.product-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px; /* 调整上方间距 */
+}
+
+.product {
+    text-align: center;
+    width: 150px; /* 调整商品容器的宽度 */
+}
+
+.product img {
+    width: 200px;
+    height: 150px;
+    border-radius: 8px; /* 调整图片圆角 */
+}
+
+.product h3 {
+    margin-top: 10px; /* 调整商品名字与图片之间的间距 */
+    font-weight: bold;
+    font-size: 20;
+}
+
+.product button {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px; /* 调整按钮与商品名字之间的间距 */
+    margin-right: 20px;
+    font-weight: bolder;
+}
+
+/*-------------------------- 商品展示 -----------------------------*/
+/* 新增轮播样式 */
+#carouselExampleControls {
+    margin-top: 50px;
+}
+
+.carousel-item img {
+    height: 400px;
+    object-fit: cover;
+}
+
+
+
+/*------------ Responsive mobile view-------------------*/
+@media only screen and (max-width: 768px) {
+    .product-section {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px;
+    }
+  
+    .product-image img {
+      margin-left: 0; /* Remove left margin */
+      margin-bottom: 20px; /* Add bottom margin for separation */
+    }
+  
+    .product-info {
+      padding-left: 0; /* Remove left padding */
+      margin-bottom: 20px; /* Add bottom margin for separation */
+    }
+  
+    .product-info h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+  
+    .product-info p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    /* 调整轮播容器大小以确保图片完整显示 */
+    #carouselExampleControls {
+        max-width: 100%;
+        margin-top: 20px; /* 调整上部间距 */
+    }
+  
+    .carousel-item img {
+        max-width: 100%;
+        height: auto; /* 让图片高度自适应 */
+    }
+  }
+  

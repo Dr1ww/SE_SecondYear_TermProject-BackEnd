@@ -1,0 +1,25 @@
+.product-price {
+    color: #007bff;
+    position: relative;
+}
+
+.product-discount{
+    color: #007bff;
+    position: relative;
+    display: inline-block; /* 让划线只占据文字的宽度 */
+}
+.product-discount:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #ff0000;
+    transform: translateY(-50%);
+}
+
+h2{
+    margin-bottom: 20px;
+    font-weight: bolder;
+}

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 添加 Bootstrap 样式链接 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../CSS/global.css">
+    <link rel="stylesheet" href="../CSS/MenFormat.css">
+
+
+    <title>KidsHomePage</title>
+</head>
+<body>
+
+        <!-- Bootstrap 导航栏开始 -->
+        <!-- amber check branch  -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="HomePage.html">
+                    <img src="../Image Source 1/Logo 抠图版.png" alt="Logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="MenHomePage.html">Men</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="WomenHomePage.html">Women</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="KidsHomePage.html">Kids</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="FAQ.html">FAQ</a>
+                        </li>
+                         <li class="nav-item" id="searchFormWrapper">
+                          <form id="searchForm" class="form-inline my-2 my-lg-0">
+                              <input id="searchInput" class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search">
+                              <button id="searchButton" class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>
+                          </form>
+                      </li>
+                      
+                      <script>
+                          // 获取搜索表单和其内部元素
+                          const searchForm = document.getElementById('searchForm');
+                          const searchInput = document.getElementById('searchInput');
+                          const searchButton = document.getElementById('searchButton');
+                      
+                          // 添加事件监听器来处理搜索操作
+                          searchButton.addEventListener('click', function() {
+                              // 获取搜索关键字
+                              const keyword = searchInput.value.trim().toLowerCase();
+                              
+                              // 执行搜索操作
+                              // 这里可以添加您的搜索逻辑，比如跳转到搜索结果页面、显示搜索结果等
+                              switch (keyword) {
+                                  case 'kids':
+                                      window.location.href = 'KidsHomePage.html';
+                                      break;
+                                  case 'men':
+                                      window.location.href = 'MenHomePage.html';
+                                      break;
+                                  case 'women':
+                                      window.location.href = 'WomenHomePage.html';
+                                      break;
+                                  default:
+                                      alert('No search results found for: ' + keyword);
+                              }
+                          });
+                      
+                          // 也可以在按下回车键时执行搜索操作
+                          searchInput.addEventListener('keyup', function(event) {
+                              // 获取搜索关键字
+                              const keyword = searchInput.value.trim().toLowerCase();
+                              
+                              // 如果按下的是回车键，则执行搜索操作
+                              if (event.key === 'Enter') {
+                                  // 阻止默认提交行为
+                                  event.preventDefault();
+                                  
+                                  // 执行搜索操作
+                                  // 这里可以添加您的搜索逻辑，比如跳转到搜索结果页面、显示搜索结果等
+                                  switch (keyword) {
+                                      case 'kids':
+                                          window.location.href = 'KidsHomePage.html';
+                                          break;
+                                      case 'men':
+                                          window.location.href = 'MenHomePage.html';
+                                          break;
+                                      case 'women':
+                                          window.location.href = 'WomenHomePage.html';
+                                          break;
+                                      default:
+                                          alert('No search results found for: ' + keyword);
+                                  }
+                              }
+                          });
+                      </script>
+                        <li class="nav-item">
+                             <a class="nav-link cart-button" href="Cart.html">Cart</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link sign-in-button" href="SignInPage.html">Sign In</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Bootstrap 导航栏结束 -->
+        <!-- 新的导航栏 -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-bg-new">
+    <div class="container">
+        <!-- 可以根据需要修改链接和文本 -->
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="Kids_SpecialDiscount.html">Special Discount</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="KidsBoy_Clothing.html">Boys Clothing</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="KidsBoy_Shoes.html">Boys Shoes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="KidsGirl_Clothing.html">Girls Clothing</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="KidsGirl_Shoes.html">Girls Shoes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Kids_Accessories.html">Accessories</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+    <!-- 网页主体开始 -->
+    <main>
+      <!-- 第一行 -->
+      <div class="product-container">
+          <a href="Kids_No_1.html" class="product-box">
+              <img class="product-img" src="../image kids by amber/K-Discount-3.png" alt="Product 1">
+              <div class="product-details">
+                  <div class="product-name">Crossbody <br>Bag</div>
+                  <div class="product-price">￥179.00</div>
+              </div>
+          </a>
+          <a href="Kids_No_2.html" class="product-box">
+              <img class="product-img" src="../image kids by amber/K-Discount-2.png" alt="Product 2">
+              <div class="product-details">
+                  <div class="product-name">Nike Force 1<br>EasyOn</div>
+                  <div class="product-price">￥455.00</div>
+              </div>
+          </a>
+          <a href="Kids_No_3.html" class="product-box">
+              <img class="product-img" src="../image kids by amber/K-Discount-1.png" alt="Product 3">
+              <div class="product-details">
+                  <div class="product-name">Nike Air<br>Max</div>
+                  <div class="product-price">￥369.00</div>
+              </div>
+          </a>
+      </div>
+
+      <!-- 第二行 -->
+      <div class="product-container">
+          <a href="Kids_No_4.html" class="product-box">
+              <img class="product-img" src="../image kids by amber/KB-clothing-1-2.jpg" alt="Product 1">
+              <div class="product-details">
+                  <div class="product-name">Sportswear<br>T-Shirts</div>
+                  <div class="product-price">￥155.00</div>
+              </div>
+          </a>
+          <a href="Kids_No_5.html" class="product-box">
+              <img class="product-img" src="../image kids by amber/KB-clothing-2-1.png" alt="Product 2">
+              <div class="product-details">
+                  <div class="product-name">Long-Zip <br>Hoodie</div>
+                  <div class="product-price">￥369.00</div>
+              </div>
+          </a>
+          <a href="Kids_No_6.html" class="product-box">
+              <img class="product-img" src="../image kids by amber/KB-clothing-3-1.png" alt="Product 3">
+              <div class="product-details">
+                  <div class="product-name">Cargo <br>Pants</div>
+                  <div class="product-price">￥288.00</div>
+              </div>
+          </a>
+      </div>
+
+      <!-- 第三行 -->
+      <div class="product-container">
+          <a href="Kids_No_7.html" class="product-box">
+              <img class="product-img" src="../image kids by amber/KB-shoes-1-1.png" alt="Product 1">
+              <div class="product-details">
+                  <div class="product-name">Dynamo 2<br>EasyOn</div>
+                  <div class="product-price">￥456.00</div>
+              </div>
+          </a>
+          <a href="Kids_No_8.html" class="product-box">
+              <img class="product-img" src="../image kids by amber/KB-shoes-2-1.png" alt="Product 2">
+              <div class="product-details">
+                  <div class="product-name">Z.N.E. TEE</div>
+                  <div class="product-price">￥339.00</div>
+              </div>
+          </a>
+          <a href="Kids_No_9.html" class="product-box">
+              <img class="product-img" src="../image kids by amber/KB-shoes-3-1.png" alt="Product 3">
+              <div class="product-details">
+                  <div class="product-name">Nike<br>Terry Hoodie</div>
+                  <div class="product-price">￥188.00</div>
+              </div>
+          </a>
+      </div>
+
+      <!-- 第四行 -->
+      <div class="product-container">
+          <a href="Kids_No_10.html" class="product-box">
+              <img class="product-img" src="../image kids by amber/KG-cloth-4-2.jpg" alt="Product 1">
+              <div class="product-details">
+                  <div class="product-name">Printed<br>shirt</div>
+                  <div class="product-price">￥99.00</div>
+              </div>
+          </a>
+          <a href="Kids_No_11.html" class="product-box">
+              <img class="product-img" src="../image kids by amber/KG-cloth-2-1.jpg" alt="Product 2">
+              <div class="product-details">
+                  <div class="product-name">Sleeve<br>Shirts</div>
+                  <div class="product-price">￥118.00</div>
+              </div>
+          </a>
+          <a href="Kids_No_12.html" class="product-box">
+              <img class="product-img" src="../image kids by amber/KG-cloth-5-2.jpg" alt="Product 3">
+              <div class="product-details">
+                  <div class="product-name">Fabric<br>Dress</div>
+                  <div class="product-price">￥128.00</div>
+              </div>
+          </a>
+      </div>
+
+      <!-- 第五行 -->
+      <div class="product-container">
+          <a href="Kids_No_13.html" class="product-box">
+              <img class="product-img" src="../image kids by amber/KG-shoes-1-1.png" alt="Product 1">
+              <div class="product-details">
+                  <div class="product-name">Team<br>Hustle D</div>
+                  <div class="product-price">￥449.00</div>
+              </div>
+          </a>
+          <a href="Kids_No_14.html" class="product-box">
+              <img class="product-img" src="../image kids by amber/KG-shoes-2-1.jpg" alt="Product 2">
+              <div class="product-details">
+                  <div class="product-name">Lining<br>Alien star</div>
+                  <div class="product-price">￥268.00</div>
+              </div>
+          </a>
+          <a href="Kids_No_15.html" class="product-box">
+              <img class="product-img" src="../image kids by amber/KG-shoes-3-1.png" alt="Product 3">
+              <div class="product-details">
+                  <div class="product-name">Star<br>Runner 4</div>
+                  <div class="product-price">￥399.00</div>
+              </div>
+          </a>
+        </div>
+
+      <!-- 第六行 -->
+      <div class="product-container">
+          <a href="Kids_No_16.html" class="product-box">
+              <img class="product-img" src="../image kids by amber/K-Accessories-1.jpg" alt="Product 1">
+              <div class="product-details">
+                  <div class="product-name">Straw Hat</div>
+                  <div class="product-price">￥56.00</div>
+             </div>
+          </a>
+          <a href="Kids_No_17.html" class="product-box">
+              <img class="product-img" src="../image kids by amber/K-Accessories-2.jpg" alt="Product 2">
+              <div class="product-details">
+                  <div class="product-name">Cotton<br>Cap</div>
+                  <div class="product-price">￥88.00</div>
+              </div>
+          </a>
+          <a href="Kids_No_18.html" class="product-box">
+              <img class="product-img" src="../image kids by amber/K-Accessories-3.jpg" alt="Product 3">
+              <div class="product-details">
+                  <div class="product-name">Drawstring<br>Bag</div>
+                  <div class="product-price">￥79.00</div>
+              </div>
+          </a>
+      </div>
+
+
+
+  </main>
+  <!-- 网页主体结束 -->
+        <!-- 底部开始 -->
+        <footer>
+            <div class="footer-container">
+              <div class="footer-section">
+                <!-- Logo Section -->
+                <img src="../Image Source 1/Fly Wings Logo.png" alt="Logo">
+              </div>
+              <div class="footer-section">
+                <!-- Company Info and Contact -->
+                <h3>About Us</h3>
+                <p>239 Huay Kaew Rd, Tambon Su Thep, Amphoe Mueang Chiang Mai, Chang Wat Chiang Mai 50200</p>
+                <p><a href="mailto:bingwen_qian@cmu.ac.th">Email: bingwen_qian@cmu.ac.th</a></p>
+                <p>Phone: +66 168 168 1688</p>
+              </div>
+              <div class="footer-section">
+                <!-- Navigation Links -->
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="MenHomePage.html">Men</a></li>
+                    <li><a href="WomenHomePage.html">Women</a></li>
+                    <li><a href="KidsHomePage.html">Kids</a></li>
+                    <li><a href="../HTML/FAQ.html">FAQ</a></li>
+                  </ul>
+              </div>
+            </div>
+            <div class="footer-bottom">
+              <p>&copy; 2024 Fly Wings. All rights reserved.</p>
+            </div>
+          </footer>
+        <!-- 底部结束 -->
+
+
+    <!-- 添加 Bootstrap JavaScript 依赖 -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!--跳转相应网页-->
+    <script>
+        // JavaScript 代码处理按钮点击事件，实现页面跳转
+        document.getElementById('buyNowButton').addEventListener('click', function() {
+          // 在此处设置购买页面的 URL
+          window.location.href = '../HTML/Top-Selling.html';
+        });
+      </script>
+
+          <script>
+        // JavaScript 代码处理按钮点击事件，实现页面跳转
+        document.getElementById('buyNowButton1').addEventListener('click', function() {
+          // 在此处设置购买页面的 URL
+          window.location.href = '../HTML/NewArrivalHoodie.html';
+        });
+      </script>
+
+                <script>
+        // JavaScript 代码处理按钮点击事件，实现页面跳转
+        document.getElementById('buyNowButton2').addEventListener('click', function() {
+          // 在此处设置购买页面的 URL
+          window.location.href = '../HTML/NewArrivalShort.html';
+        });
+      </script>
+
+                      <script>
+        // JavaScript 代码处理按钮点击事件，实现页面跳转
+        document.getElementById('buyNowButton3').addEventListener('click', function() {
+          // 在此处设置购买页面的 URL
+          window.location.href = '../HTML/NewArrivalSneaker.html';
+        });
+      </script>
+
+                            <script>
+        // JavaScript 代码处理按钮点击事件，实现页面跳转
+        document.getElementById('buyNowButton4').addEventListener('click', function() {
+          // 在此处设置购买页面的 URL
+          window.location.href = '../HTML/NewArrivalKIDS.html';
+        });
+      </script>
+
+
+      
+      <!------------------------------------------------------------>
+</body>
+</html>

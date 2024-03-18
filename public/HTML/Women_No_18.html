@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 添加 Bootstrap 样式链接 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../CSS/global.css">
+    <link rel="stylesheet" href="../CSS/Product-Selling-Format.css">
+    <title>UA Loudon crossbody waist bag</title>
+</head>
+<body>
+
+        <!-- Bootstrap 导航栏开始 -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="HomePage.html">
+                    <img src="../Image Source 1/Logo 抠图版.png" alt="Logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="MenHomePage.html">Men</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="WomenHomePage.html">Women</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="KidsHomePage.html">Kids</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="FAQ.html">FAQ</a>
+                        </li>
+                         <li class="nav-item" id="searchFormWrapper">
+                          <form id="searchForm" class="form-inline my-2 my-lg-0">
+                              <input id="searchInput" class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search">
+                              <button id="searchButton" class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>
+                          </form>
+                      </li>
+                      
+                      <script>
+                          // 获取搜索表单和其内部元素
+                          const searchForm = document.getElementById('searchForm');
+                          const searchInput = document.getElementById('searchInput');
+                          const searchButton = document.getElementById('searchButton');
+                      
+                          // 添加事件监听器来处理搜索操作
+                          searchButton.addEventListener('click', function() {
+                              // 获取搜索关键字
+                              const keyword = searchInput.value.trim().toLowerCase();
+                              
+                              // 执行搜索操作
+                              // 这里可以添加您的搜索逻辑，比如跳转到搜索结果页面、显示搜索结果等
+                              switch (keyword) {
+                                  case 'kids':
+                                      window.location.href = 'KidsHomePage.html';
+                                      break;
+                                  case 'men':
+                                      window.location.href = 'MenHomePage.html';
+                                      break;
+                                  case 'women':
+                                      window.location.href = 'WomenHomePage.html';
+                                      break;
+                                  default:
+                                      alert('No search results found for: ' + keyword);
+                              }
+                          });
+                      
+                          // 也可以在按下回车键时执行搜索操作
+                          searchInput.addEventListener('keyup', function(event) {
+                              // 获取搜索关键字
+                              const keyword = searchInput.value.trim().toLowerCase();
+                              
+                              // 如果按下的是回车键，则执行搜索操作
+                              if (event.key === 'Enter') {
+                                  // 阻止默认提交行为
+                                  event.preventDefault();
+                                  
+                                  // 执行搜索操作
+                                  // 这里可以添加您的搜索逻辑，比如跳转到搜索结果页面、显示搜索结果等
+                                  switch (keyword) {
+                                      case 'kids':
+                                          window.location.href = 'KidsHomePage.html';
+                                          break;
+                                      case 'men':
+                                          window.location.href = 'MenHomePage.html';
+                                          break;
+                                      case 'women':
+                                          window.location.href = 'WomenHomePage.html';
+                                          break;
+                                      default:
+                                          alert('No search results found for: ' + keyword);
+                                  }
+                              }
+                          });
+                      </script>
+                        <li class="nav-item">
+                             <a class="nav-link cart-button" href="Cart.html">Cart</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link sign-in-button" href="SignInPage.html">Sign In</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Bootstrap 导航栏结束 -->
+
+        <!-- 网页主体开始 -->
+        <main>
+            <div class="product-header">
+                <h2>UA Loudon crossbody waist bag</h2>
+              </div>
+          
+              <!-- 商品展示内容区域 -->
+              <section class="product-section">
+                <div class="product-image">
+                  <img src="../image women by amber/W-Accessories-2-1.jpg" alt="Product Image">
+                </div>
+                <div class="product-info">
+                    <h3>Product Overview</h3>
+                    <p>The UA Loudon Crossbody Waist Bag by Under Armour is a versatile accessory designed for urban adventurers. 
+                        With its sleek design and durable construction, it offers ample storage space for your essentials while on the move.
+                        </p>
+                
+                    <!-- 1. 商品简介 -->
+                    <div class="product-description">
+                      <h3>Product Introduction</h3>
+                      <p>Whether you're exploring the city streets or hitting the trails, the Loudon Crossbody Waist Bag keeps your essentials close at hand, ensuring you're always ready for your next adventure.
+                        </p>
+                    </div>
+                
+                    <div class="product-size">
+                        <h3>Size</h3>
+                        
+                         <!-- 2.尺码 -->
+                        <div class="size-buttons">
+                            <button>standard</button>
+                        </div>
+                    </div>
+                    
+                    <!-- 3. 价格和加入购物车 -->
+                    <div class="product-price">
+                      <h3>Price</h3>
+                      <p>189￥</p>
+                      <button>Add to Cart</button>
+                    </div>
+                
+                    <!-- 4. 政策说明 -->
+                    <div class="policy-info">
+                      <h3>Policy</h3>
+                  
+                      <!-- Policy 1 -->
+                      <div class="policy-item">
+                          <!-- Icon for Policy 1 -->
+                          <img src="../Icon/package_car_2x.png" alt="Policy 1 Icon">
+                  
+                          <!-- Description for Policy 1 -->
+                          <p>Free Delivery: Returns are also free delivery.</p>
+                      </div>
+                  
+                      <!-- Policy 2 -->
+                      <div class="policy-item">
+                          <!-- Icon for Policy 2 -->
+                          <img src="../Icon/Chield_check_fill@2x.png" alt="Policy 2 Icon">
+                  
+                          <!-- Description for Policy 2 -->
+                          <p>Protecting Privacy: Full Privacy Shipping.</p>
+                      </div>
+                  </div>
+
+                  </div>
+              </section>
+        </main>
+        <!-- 网页主体结束 -->
+
+        <!-- 底部开始 -->
+        <footer>
+            <div class="footer-container">
+              <div class="footer-section">
+                <!-- Logo Section -->
+                <img src="../Image Source 1/Fly Wings Logo.png" alt="Logo">
+              </div>
+              <div class="footer-section">
+                <!-- Company Info and Contact -->
+                <h3>About Us</h3>
+                <p>239 Huay Kaew Rd, Tambon Su Thep, Amphoe Mueang Chiang Mai, Chang Wat Chiang Mai 50200</p>
+                <p><a href="mailto:bingwen_qian@cmu.ac.th">Email: bingwen_qian@cmu.ac.th</a></p>
+                <p>Phone: +66 168 168 1688</p>
+              </div>
+              <div class="footer-section">
+                <!-- Navigation Links -->
+                <h3>Quick Links</h3>
+                <ul>
+                   <li><a href="MenHomePage.html">Men</a></li>
+                  <li><a href="WomenHomePage.html">Women</a></li>
+                  <li><a href="KidsHomePage.html">Kids</a></li>
+                  <li><a href="../HTML/FAQ.html">FAQ</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="footer-bottom">
+              <p>&copy; 2024 Fly Wings. All rights reserved.</p>
+            </div>
+          </footer>
+        <!-- 底部结束 -->
+
+
+    <!-- 添加 Bootstrap JavaScript 依赖 -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+        // JavaScript 代码处理按钮点击事件，实现页面跳转
+        document.getElementById('buyNowButton').addEventListener('click', function() {
+          // 在此处设置购买页面的 URL
+          window.location.href = '../HTML/Top-Selling.html';
+        });
+      </script>
+      <script>
+        // JavaScript 代码处理按钮点击事件，实现样式切换
+        document.addEventListener('DOMContentLoaded', function() {
+            var buttons = document.querySelectorAll('.size-buttons button');
+            // 遍历所有按钮，添加点击事件监听器
+            buttons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                    // 移除所有按钮的 'active' 类
+                    buttons.forEach(function(btn) {
+                        btn.classList.remove('active');
+                    });
+                    // 为当前点击的按钮添加 'active' 类
+                    button.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
