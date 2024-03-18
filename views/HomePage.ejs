@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 添加 Bootstrap 样式链接 -->
+    <link rel="stylesheet" href="../CSS/global.css">
+    <link rel="stylesheet" href="../CSS/MenFormat.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>Home Page</title>
+    <style>
+        /* 自定义样式 */
+        .fixed-bottom-right {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+   <!-- Bootstrap 导航栏开始 -->
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <img src="../Image Source 1/Logo 抠图版.png" alt="Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/MenHomePage">Category</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="WomenHomePage.html">Product</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="KidsHomePage.html">Sales History</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/FAQ">Best Seller</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Bootstrap 导航栏结束 -->
+    <!-- 网页主体开始 -->
+    <main>
+        <h1>Category Management</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% categories.forEach(function(category) { %>
+                    <tr>
+                        <td><%= category.ID %></td>
+                        <td><%= category.Name %></td>
+                        <td>
+                            <button class="btn btn-primary">Detail</button>
+                            <button class="btn btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </main>
+    <!-- 网页主体结束 -->
+    
+    <!-- ADD按钮 -->
+    <div class="fixed-bottom-right mb-3">
+        <button id="addButton" class="btn btn-success">ADD</button>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        // 点击ADD按钮时触发的事件
+        document.getElementById("addButton").addEventListener("click", function() {
+            // 弹出确认框
+            var categoryName = prompt("请输入新增类别的名字：");
+            if (categoryName != null && categoryName.trim() !== "") {
+                // 发送POST请求，将新增类别的名字发送到后端
+                axios.post('/addCategory', {
+                    categoryName: categoryName
+                })
+                .then(function (response) {
+                    // 请求成功后的处理逻辑
+                    console.log(response);
+                    alert("新增类别成功！");
+                    location.reload();
+            })
+                .catch(function (error) {
+                    // 请求失败后的处理逻辑
+                    console.error(error);
+                    alert("新增类别失败！");
+                });
+            } else {
+                // 用户取消了输入，或者输入为空字符串，不执行任何操作
+            }
+        });
+    </script>
+</body>
+</html>
+
