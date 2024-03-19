@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 添加 Bootstrap 样式链接 -->
+    <link rel="stylesheet" href="../CSS/global.css">
+    <link rel="stylesheet" href="../CSS/MenFormat.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>Login Page</title>
+    <style>
+        /* 自定义样式 */
+        .fixed-bottom-right {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+   <!-- Bootstrap 导航栏开始 -->
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <img src="../Image Source 1/Logo 抠图版.png" alt="Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/cate">Category</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Product">Product</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/SalesHistory">Sales History</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/BestSeller">Best Seller</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Bootstrap 导航栏结束 -->
+
+<!-- 登录弹窗开始 -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 登录弹窗结束 -->
+
+<!-- 网页主体开始 -->
+<main>
+    <h1>Login Page</h1>
+</main>
+<!-- 网页主体结束 -->
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    // 显示登录弹窗
+    $('#loginModal').modal('show');
+
+    // 监听登录表单提交
+    $('#loginForm').submit(function(event) {
+        event.preventDefault(); // 阻止默认表单提交行为
+
+        // 获取输入的用户名和密码
+        var username = $('#username').val();
+        var password = $('#password').val();
+
+        // 硬编码验证用户名和密码
+        if (username === 'admin' && password === '123456') {
+            // 登录成功，跳转到 Category 页面
+            window.location.href = '/cate';
+        } else {
+            // 登录失败，清空输入框并显示错误提示
+            $('#username').val('');
+            $('#password').val('');
+            alert('Invalid username or password. Please try again.');
+        }
+    });
+});
+</script>
+
+</body>
+</html>

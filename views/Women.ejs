@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 添加 Bootstrap 样式链接 -->
+    <link rel="stylesheet" href="../CSS/global.css">
+    <link rel="stylesheet" href="../CSS/MenFormat.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>Women Page</title>
+    <style>
+        /* 自定义样式 */
+        .fixed-bottom-right {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+        }
+
+        /* 设置选中链接的样式 */
+        .navbar-nav .nav-link.active {
+            color: yellow !important; /* 设置为黄色 */
+        }
+
+        /* 图片样式 */
+        .product-image {
+            max-width: 100%; /* 图片最大宽度为父元素的100% */
+            max-height: auto; /* 图片最大高度为自动，保持比例 */
+            object-fit: contain; /* 保持图片比例，不拉伸变形 */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Bootstrap 导航栏开始 -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <img src="../Image Source 1/Logo 抠图版.png" alt="Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/cate">Category</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Product">Product</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/SalesHistory">Sales History</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/BestSeller">Best Seller</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- 新的导航栏 -->
+<nav class="navbar navbar-expand-lg navbar-light bg-secondary navbar-bg-new">
+    <div class="container">
+        <!-- 可以根据需要修改链接和文本 -->
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/Product">Men</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Women</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Kids</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Bootstrap 导航栏结束 -->
+<!-- 网页主体开始 -->
+<main>
+    <h1>Product Management/Women</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Category ID</th>
+                <th>Title</th>
+                <th>Image</th>
+                <th>Price</th>
+                <th>Size Options</th>
+                <th>Actions</th> <!-- 添加 Actions 标题 -->
+            </tr>
+        </thead>
+        <tbody>
+            <% products.forEach(function(product) { %>
+                <tr>
+                    <td><%= product.id %></td>
+                    <td><%= product.cate_id %></td>
+                    <td><%= product.title %></td>
+                    <td><img src="<%= product.image_path %>" class="product-image"></td>
+                    <td><%= product.price %></td>
+                    <td><%= product.size_options %></td>
+                    <td>
+                        <!-- 编辑按钮 -->
+                        <button class="btn btn-primary btn-edit-women" data-id="<%= product.id %>">Edit</button>
+                        <!-- 删除按钮 -->
+                        <button class="btn btn-danger btn-delete-women" data-id="<%= product.id %>">Delete</button>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</main>
+<!-- 网页主体结束 -->
+
+<!-- ADD按钮 -->
+<div class="fixed-bottom-right mb-3">
+    <button id="addButton" class="btn btn-success" data-toggle="modal" data-target="#addModal">ADD</button>
+</div>
+
+<!-- 新增产品弹窗 -->
+<div id="addModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add New Product</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- 新增产品表单 -->
+                <form id="addForm">
+                    <div class="form-group">
+                        <label for="addId">ID:</label>
+                        <input type="text" class="form-control" id="addId" name="id">
+                    </div>
+                    <div class="form-group">
+                        <label for="addCategoryId">Category ID:</label>
+                        <input type="text" class="form-control" id="addCategoryId" name="category_id">
+                    </div>
+                    <div class="form-group">
+                        <label for="addTitle">Title:</label>
+                        <input type="text" class="form-control" id="addTitle" name="title">
+                    </div>
+                    <div class="form-group">
+                        <label for="addImage">Image:</label>
+                        <input type="file" class="form-control-file" id="addImage" name="image">
+                    </div>
+                    <div class="form-group">
+                        <label for="addPrice">Price:</label>
+                        <input type="text" class="form-control" id="addPrice" name="price">
+                    </div>
+                    <div class="form-group">
+                        <label for="addSizeOptions">Size Options:</label>
+                        <input type="text" class="form-control" id="addSizeOptions" name="size_options">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnAddProduct">Submit</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 编辑弹窗 -->
+<div id="editModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Product</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- 编辑表单 -->
+                <form id="editForm">
+                    <div class="form-group">
+                        <label for="editTitle">Title:</label>
+                        <input type="text" class="form-control" id="editTitle" name="title">
+                    </div>
+                    <div class="form-group">
+                        <label for="editPrice">Price:</label>
+                        <input type="text" class="form-control" id="editPrice" name="price">
+                    </div>
+                    <div class="form-group">
+                        <label for="editSizeOptions">Size Options:</label>
+                        <input type="text" class="form-control" id="editSizeOptions" name="size_options">
+                    </div>
+                    <!-- 隐藏产品ID字段，以确保后端可以识别要更新的产品 -->
+                    <input type="hidden" id="editId" name="id">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnSaveChanges">Save Changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 删除确认弹窗 -->
+<div id="deleteModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirm Delete</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete this product?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="btnDeleteConfirm">Delete</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        // 点击ADD按钮，清空新增产品表单
+        $('#addButton').click(function() {
+            $('#addForm')[0].reset();
+        });
+
+        // 点击添加产品按钮
+        $('#btnAddProduct').click(function() {
+            var formData = new FormData();
+            formData.append('id', $('#addId').val());
+            formData.append('category_id', $('#addCategoryId').val());
+            formData.append('title', $('#addTitle').val());
+            formData.append('image', $('#addImage')[0].files[0]);
+            formData.append('price', $('#addPrice').val());
+            formData.append('size_options', $('#addSizeOptions').val());
+
+            axios.post('/addWomenProduct', formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                })
+                .then(function(response) {
+                    alert('Product added successfully!');
+                    location.reload();
+                })
+                .catch(function(error) {
+                    console.error('Error adding product:', error);
+                });
+        });
+
+        // 点击编辑按钮，弹出编辑模态框
+        $('.btn-edit-women').click(function() {
+            var id = $(this).data('id');
+            axios.get('/womenProduct/' + id)
+                .then(function(response) {
+                    var product = response.data;
+                    $('#editId').val(product.id); // 设置产品ID
+                    $('#editTitle').val(product.title);
+                    $('#editPrice').val(product.price);
+                    $('#editSizeOptions').val(product.size_options);
+                    $('#editModal').modal('show');
+                })
+                .catch(function(error) {
+                    console.error('Error fetching product:', error);
+                });
+        });
+
+        // 点击保存修改按钮，提交编辑表单
+        $('#btnSaveChanges').click(function() {
+            var title = $('#editTitle').val();
+            var price = $('#editPrice').val();
+            var size_options = $('#editSizeOptions').val();
+            var id = $('#editId').val(); // 获取产品ID
+
+            var updatedProduct = {
+                id: id, // 将产品ID添加到更新对象中
+                title: title,
+                price: price,
+                size_options: size_options
+            };
+
+            axios.post('/updateWomenProduct/' + id, updatedProduct) 
+                .then(function(response) {
+                    alert('Product updated successfully!');
+                    location.reload();
+                })
+                .catch(function(error) {
+                    console.error('Error updating product:', error);
+                });
+        });
+
+        // 点击删除按钮，弹出确认删除模态框
+        $('.btn-delete-women').click(function() {
+            var id = $(this).data('id');
+            // 点击删除按钮时，将产品 ID 存储在全局变量中，以便确认删除时使用
+            window.productIdToDelete = id;
+            $('#deleteModal').modal('show');
+        });
+
+        // 点击确认删除按钮，执行删除操作
+        $('#btnDeleteConfirm').click(function() {
+            var id = window.productIdToDelete;
+            // 这里根据产品 ID 执行产品删除操作
+            // 以下代码仅是演示示例，您需要根据您的实际需求进行更改
+            axios.delete('/deleteWomenProduct/' + id)
+                .then(function(response) {
+                    alert('Product deleted successfully!');
+                    // 刷新页面
+                    location.reload();
+                })
+                .catch(function(error) {
+                    console.error('Error deleting product:', error);
+                });
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../CSS/global.css">
     <link rel="stylesheet" href="../CSS/MenFormat.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <title>SalesHistory Page</title>
+    <title>Best Seller Page</title>
     <style>
         /* 自定义样式 */
         .fixed-bottom-right {
@@ -50,26 +50,19 @@
 <!-- Bootstrap 导航栏结束 -->
     <!-- 网页主体开始 -->
     <main>
-        <h1>Sales History</h1>
+        <h1>Best Seller</h1>
         <table class="table">
             <thead>
                 <tr>
-                    <th>Bill ID</th>
-                    <th>Bill Date</th>
                     <th>Product ID</th>
-                    <th>Number of Items</th>
-                    <th>Bill Price</th>
+                    <th>Number of Sales</th>
                 </tr>
             </thead>
             <tbody>
-                <% saleshistory.forEach(function(saleshistory) { %>
+                <% bestSellers.forEach(function(seller) { %>
                     <tr>
-                        <td><%= saleshistory.bill_id %></td>
-                        <td><%= saleshistory.bill_date %></td>
-                        <td><%= saleshistory.product_id %></td>
-                        <td><%= saleshistory.number_of_items %></td>
-                        <td><%= saleshistory.bill_price %></td>
-
+                        <td><%= seller.product_id %></td>
+                        <td><%= seller.count %></td>
                     </tr>
                 <% }); %>
             </tbody>

@@ -34,8 +34,12 @@ app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// 路由处理
 app.get('/', (req, res) => {
+    res.render('Login');
+});
+
+// 路由处理
+app.get('/cate', (req, res) => {
     // 查询 bk_category 表格中的数据
     db.query('SELECT * FROM bk_category', (err, results) => {
         if (err) {
@@ -131,6 +135,7 @@ app.get('/SalesHistory', (req, res) => {
 app.get('/product/:id', (req, res) => {
     // 从请求参数中获取产品ID
     const productId = req.params.id;
+    
 
     // 查询数据库中对应ID的产品信息
     db.query('SELECT * FROM bk_menproduct WHERE id = ?', [productId], (err, results) => {
@@ -150,6 +155,56 @@ app.get('/product/:id', (req, res) => {
         }
     });
 });
+// 处理单个产品的路由
+app.get('/womenProduct/:id', (req, res) => {
+    // 从请求参数中获取产品ID
+    const productId = req.params.id;
+    
+
+    // 查询数据库中对应ID的产品信息
+    db.query('SELECT * FROM bk_womenproduct WHERE id = ?', [productId], (err, results) => {
+        if (err) {
+            console.error('Error querying product from database:', err);
+            res.status(500).send('Internal Server Error');
+            return;
+        }
+
+        // 如果找到了产品，则将产品信息作为 JSON 数据发送回客户端
+        if (results.length > 0) {
+            const product = results[0];
+            res.json(product);
+        } else {
+            // 如果未找到产品，则返回404错误
+            res.status(404).send('Product Not Found');
+        }
+    });
+});
+// 处理单个产品的路由
+app.get('/kidsProduct/:id', (req, res) => {
+    // 从请求参数中获取产品ID
+    const productId = req.params.id;
+    
+
+    // 查询数据库中对应ID的产品信息
+    db.query('SELECT * FROM bk_kidsproduct WHERE id = ?', [productId], (err, results) => {
+        if (err) {
+            console.error('Error querying product from database:', err);
+            res.status(500).send('Internal Server Error');
+            return;
+        }
+
+        // 如果找到了产品，则将产品信息作为 JSON 数据发送回客户端
+        if (results.length > 0) {
+            const product = results[0];
+            res.json(product);
+        } else {
+            // 如果未找到产品，则返回404错误
+            res.status(404).send('Product Not Found');
+        }
+    });
+});
+
+
 
 // 处理编辑产品信息的路由
 app.post('/updateProduct/:id', (req, res) => {
@@ -224,6 +279,173 @@ app.post('/addProduct', upload.single('image'), (req, res) => {
 
         console.log('Product added successfully:', result);
         res.send('Product added successfully!');
+    });
+});
+
+// 处理 Best Seller 页面的路由
+app.get('/bestseller', (req, res) => {
+    // 查询 saleshistory 表格中的数据，并对 product_id 进行计数并排序
+    db.query('SELECT product_id, COUNT(*) AS count FROM saleshistory GROUP BY product_id ORDER BY count DESC', (err, results) => {
+        if (err) {
+            console.error('Error querying sales history from database:', err);
+            res.status(500).send('Internal Server Error');
+            return;
+        }
+        // 渲染 Best Seller 页面，传递查询到的数据给模板
+        res.render('BestSeller', { bestSellers: results });
+    });
+});
+
+// 添加 Women 页面的路由处理
+app.get('/womenProducts', (req, res) => {
+    // 查询 bk_womenproduct 表格中的产品信息
+    db.query('SELECT * FROM bk_womenproduct', (err, results) => {
+        if (err) {
+            console.error('Error querying women products from database:', err);
+            res.status(500).send('Internal Server Error');
+            return;
+        }
+        // 渲染 Women 页面，传递查询到的数据给模板
+        res.render('Women', { products: results });
+    });
+});
+
+// 处理 Women 产品的添加功能
+app.post('/addWomenProduct', upload.single('image'), (req, res) => {
+    // 获取表单提交的数据
+    const { id, category_id, title, price, size_options } = req.body;
+    const image = req.file; // 上传的图片文件对象
+
+    // 如果没有上传图片，则返回错误
+    if (!image) {
+        return res.status(400).send('No image uploaded');
+    }
+
+    // 将图片文件移动到指定目录
+    const imageName = image.originalname;
+    const imagePath = '../image by amber/' + imageName;
+
+    // 将数据插入到 bk_womenproduct 表中
+    const sql = 'INSERT INTO bk_womenproduct (id, cate_id, title, image_path, price, size_options) VALUES (?, ?, ?, ?, ?, ?)';
+    const values = [id, category_id, title, imagePath, price, size_options];
+
+    db.query(sql, values, (err, result) => {
+        if (err) {
+            console.error('Error inserting women product into database:', err);
+            res.status(500).send('Internal Server Error');
+            return;
+        }
+
+        console.log('Women product added successfully:', result);
+        res.send('Women product added successfully!');
+    });
+});
+
+// 处理 Women 产品的编辑功能
+app.post('/updateWomenProduct/:id', (req, res) => {
+    const id = req.params.id; // 从请求参数中获取产品ID
+    const { title, price, size_options } = req.body; // 获取编辑后的产品信息
+
+    db.query('UPDATE bk_womenproduct SET title = ?, price = ?, size_options = ? WHERE id = ?', [title, price, size_options, id], (err, results) => {
+        if (err) {
+            console.error('Error updating women product in database:', err);
+            res.status(500).send('Internal Server Error');
+            return;
+        }
+        res.json({ success: true, message: 'Women product updated successfully' });
+    });
+});
+
+// 处理 Women 产品的删除功能
+app.delete('/deleteWomenProduct/:id', (req, res) => {
+    // 获取要删除的产品的ID
+    const productId = req.params.id;
+
+    // 从数据库中删除对应ID的产品信息
+    db.query('DELETE FROM bk_womenproduct WHERE id = ?', [productId], (err, results) => {
+        if (err) {
+            console.error('Error deleting women product from database:', err);
+            res.status(500).send('Internal Server Error');
+            return;
+        }
+        // 返回删除成功的消息
+        res.json({ success: true, message: 'Women product deleted successfully' });
+    });
+});
+// 添加 Kids 页面的路由处理
+app.get('/kidsProduct', (req, res) => {
+    // 查询 bk_kidsproduct 表格中的产品信息
+    db.query('SELECT * FROM bk_kidsproduct', (err, results) => {
+        if (err) {
+            console.error('Error querying kids products from database:', err);
+            res.status(500).send('Internal Server Error');
+            return;
+        }
+        // 渲染 Kids 页面，传递查询到的数据给模板
+        res.render('Kids', { products: results });
+    });
+});
+
+// 处理 Kids 产品的添加功能
+app.post('/addKidsProduct', upload.single('image'), (req, res) => {
+    // 获取表单提交的数据
+    const { id, category_id, title, price, size_options } = req.body;
+    const image = req.file; // 上传的图片文件对象
+
+    // 如果没有上传图片，则返回错误
+    if (!image) {
+        return res.status(400).send('No image uploaded');
+    }
+
+    // 将图片文件移动到指定目录
+    const imageName = image.originalname;
+    const imagePath = '../image by amber/' + imageName;
+
+    // 将数据插入到 bk_kidsproduct 表中
+    const sql = 'INSERT INTO bk_kidsproduct (id, cate_id, title, image_path, price, size_options) VALUES (?, ?, ?, ?, ?, ?)';
+    const values = [id, category_id, title, imagePath, price, size_options];
+
+    db.query(sql, values, (err, result) => {
+        if (err) {
+            console.error('Error inserting kids product into database:', err);
+            res.status(500).send('Internal Server Error');
+            return;
+        }
+
+        console.log('Kids product added successfully:', result);
+        res.send('Kids product added successfully!');
+    });
+});
+
+// 处理 Kids 产品的编辑功能
+app.post('/updateKidsProduct/:id', (req, res) => {
+    const id = req.params.id; // 从请求参数中获取产品ID
+    const { title, price, size_options } = req.body; // 获取编辑后的产品信息
+
+    db.query('UPDATE bk_kidsproduct SET title = ?, price = ?, size_options = ? WHERE id = ?', [title, price, size_options, id], (err, results) => {
+        if (err) {
+            console.error('Error updating kids product in database:', err);
+            res.status(500).send('Internal Server Error');
+            return;
+        }
+        res.json({ success: true, message: 'Kids product updated successfully' });
+    });
+});
+
+// 处理 Kids 产品的删除功能
+app.delete('/deleteKidsProduct/:id', (req, res) => {
+    // 获取要删除的产品的ID
+    const productId = req.params.id;
+
+    // 从数据库中删除对应ID的产品信息
+    db.query('DELETE FROM bk_kidsproduct WHERE id = ?', [productId], (err, results) => {
+        if (err) {
+            console.error('Error deleting kids product from database:', err);
+            res.status(500).send('Internal Server Error');
+            return;
+        }
+        // 返回删除成功的消息
+        res.json({ success: true, message: 'Kids product deleted successfully' });
     });
 });
 
