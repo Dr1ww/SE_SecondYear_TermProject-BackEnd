@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 添加 Bootstrap 样式链接 -->
+    <link rel="stylesheet" href="../CSS/global.css">
+    <link rel="stylesheet" href="../CSS/MenFormat.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>SalesHistory Page</title>
+    <style>
+        /* 自定义样式 */
+        .fixed-bottom-right {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+   <!-- Bootstrap 导航栏开始 -->
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <img src="../Image Source 1/Logo 抠图版.png" alt="Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Category</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Product">Product</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/SalesHistory">Sales History</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/FAQ">Best Seller</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Bootstrap 导航栏结束 -->
+    <!-- 网页主体开始 -->
+    <main>
+        <h1>Sales History</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Bill ID</th>
+                    <th>Bill Date</th>
+                    <th>Product ID</th>
+                    <th>Number of Items</th>
+                    <th>Bill Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% saleshistory.forEach(function(saleshistory) { %>
+                    <tr>
+                        <td><%= saleshistory.bill_id %></td>
+                        <td><%= saleshistory.bill_date %></td>
+                        <td><%= saleshistory.product_id %></td>
+                        <td><%= saleshistory.number_of_items %></td>
+                        <td><%= saleshistory.bill_price %></td>
+
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </main>
+    <!-- 网页主体结束 -->
+    
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+</body>
+</html>

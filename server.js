@@ -112,6 +112,20 @@ app.get('/Product', (req, res) => {
         res.render('Product', { products: results });
     });
 });
+// 处理 销售记录 页面的路由
+app.get('/SalesHistory', (req, res) => {
+    // 查询  表格中的产品信息
+    db.query('SELECT * FROM saleshistory', (err, results) => {
+        if (err) {
+            console.error('Error querying products from database:', err);
+            res.status(500).send('Internal Server Error');
+            return;
+        }
+        // 渲染 Product 页面，传递查询到的数据给模板
+        res.render('SalesHistory', { saleshistory: results });
+    });
+});
+
 
 // 处理单个产品的路由
 app.get('/product/:id', (req, res) => {
