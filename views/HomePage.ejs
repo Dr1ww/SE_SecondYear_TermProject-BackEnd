@@ -88,7 +88,7 @@
         // 点击ADD按钮时触发的事件
         document.getElementById("addButton").addEventListener("click", function() {
             // 弹出确认框
-            var categoryName = prompt("请输入新增类别的名字：");
+            var categoryName = prompt("Please enter the name of the new category:");
             if (categoryName != null && categoryName.trim() !== "") {
                 // 发送POST请求，将新增类别的名字发送到后端
                 axios.post('/addCategory', {
@@ -97,14 +97,14 @@
                 .then(function (response) {
                     // 请求成功后的处理逻辑
                     console.log(response);
-                    alert("新增类别成功！");
+                    alert("Successfully added category!v");
                     // 重新加载页面
                     location.reload();
                 })
                 .catch(function (error) {
                     // 请求失败后的处理逻辑
                     console.error(error);
-                    alert("新增类别失败！");
+                    alert("Failed to add category!");
                 });
             } else {
                 // 用户取消了输入，或者输入为空字符串，不执行任何操作
@@ -113,7 +113,7 @@
 
         // 点击删除按钮时触发的事件
         $('.deleteBtn').on('click', function() {
-            if (confirm("确定要删除这个类别吗？")) {
+            if (confirm("Are you sure you want to delete this category?")) {
                 // 发送删除请求
                 var categoryId = $(this).closest('tr').find('td:first').text();
                 axios.post('/deleteCategory', {
@@ -122,14 +122,14 @@
                 .then(function(response) {
                     // 删除成功后的处理逻辑
                     console.log(response);
-                    alert("删除成功！");
+                    alert("Delete successful!");
                     // 重新加载页面
                     location.reload();
                 })
                 .catch(function(error) {
                     // 删除失败后的处理逻辑
                     console.error(error);
-                    alert("删除失败！");
+                    alert("Delete failed!");
                 });
             }
         });
@@ -148,6 +148,12 @@
                     // 如果当前行的 ID 为 1，则跳转到 Product 页面
                     if (rowId === '1') {
                         window.location.href = '/Product';
+                    }
+                    if (rowId === '2') {
+                        window.location.href = '/womenProducts';
+                    }
+                    if (rowId === '3') {
+                        window.location.href = '/kidsProduct';
                     }
                 });
             });
